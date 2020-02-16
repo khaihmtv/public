@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<script>
+    function a(){
+      let data={
+        m1:'email1@gmail.com',
+        m2:'email2@gmail.com',
+        m3:'errormail@yahoo.com',
+        m4:'falsemail@yahoo.com',
+        m5:'truemail@gmail.com'
+      }
+      window.fetch('http://localhost:3000',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(data)
+      })
+      .then(r => r.json())
+      .then(r =>{
+        console.log(r)
+      })
+}
+</script>
+<body>
+    <button onclick="a()">send request</button>
+</body>
+</html>
